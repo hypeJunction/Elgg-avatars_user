@@ -16,28 +16,9 @@ elgg_register_event_handler('init', 'system', 'avatars_user_init');
  */
 function avatars_user_init() {
 
-	elgg_register_plugin_hook_handler('container_permissions_check', 'object', 'avatars_user_permissions_check');
+	elgg_register_plugin_hook_handler('avatars:enabled', 'user', 'Elgg\Values::getTrue');
 	elgg_register_plugin_hook_handler('route', 'avatar', 'avatars_user_route_hook');
 
-}
-
-/**
- * Container permissions filter
- * By default, avatars are not allowed to be stored in arbitrary containers
- *
- * @param string $hook   "container_permissions_check"
- * @param string $type   "object"
- * @param bool   $return Permission
- * @param array  $params Hook params
- * @return array
- */
-function avatars_user_permissions_check($hook, $type, $return, $params) {
-
-	$container = elgg_extract('container', $params);
-	$subtype = elgg_extract('subtype', $params);
-	if ($container instanceof ElggUser && $subtype == 'avatar') {
-		return $container->canEdit();
-	}
 }
 
 /**
