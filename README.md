@@ -9,7 +9,3 @@ User Avatars for Elgg
 
 ![Avatar UI](https://raw.github.com/hypeJunction/Elgg-avatars/master/screenshots/avatar_ui.png "Avatar UI")
 
-## Notes
-
- * User avatars generated with this plugin enabled are not compatible with core implementation,
-so if you disable it, uploaded avatars will no longer be visible.

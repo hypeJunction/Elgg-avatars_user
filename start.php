@@ -18,6 +18,8 @@ function avatars_user_init() {
 
 	elgg_register_plugin_hook_handler('container_permissions_check', 'object', 'avatars_user_permissions_check');
 	elgg_register_plugin_hook_handler('route', 'avatar', 'avatars_user_route_hook');
+	elgg_register_plugin_hook_handler('thumb:directory', 'object', 'avatars_user_set_thumb_directory');
+	elgg_register_plugin_hook_handler('thumb:filename', 'object', 'avatars_user_set_thumb_filename');
 
 }
 
@@ -79,4 +81,39 @@ function avatars_user_route_hook($hook, $type, $return, $params) {
 		]
 	];
 
+}
+
+/**
+ * Set user avatar thumb directory
+ * 
+ * @param string $hook   "thumb:directory"
+ * @param string $type   "object"
+ * @param string $return Directory
+ * @param array  $params Hook params
+ * @return string
+ */
+function avatars_user_set_thumb_directory($hook, $type, $return, $params) {
+
+	$entity = elgg_extract('entity', $params);
+	if ($entity instanceof hypeJunction\Images\Avatar && $entity->getContainerEntity() instanceof ElggUser) {
+		return 'profile';
+	}
+}
+
+/**
+ * Set user avatar filename on filestore
+ *
+ * @param string $hook   "thumb:filename"
+ * @param string $type   "object"
+ * @param string $return Directory
+ * @param array  $params Hook params
+ * @return string
+ */
+function avatars_user_set_thumb_filename($hook, $type, $return, $params) {
+
+	$entity = elgg_extract('entity', $params);
+	$size = elgg_extract('size', $params);
+	if ($entity instanceof hypeJunction\Images\Avatar && $entity->getContainerEntity() instanceof ElggUser) {
+		return "{$entity->container_guid}{$size}.jpg";
+	}
 }
