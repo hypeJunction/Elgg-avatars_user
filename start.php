@@ -20,6 +20,9 @@ function avatars_user_init() {
 	elgg_register_plugin_hook_handler('route', 'avatar', 'avatars_user_route_hook');
 	elgg_register_plugin_hook_handler('thumb:directory', 'object', 'avatars_user_set_thumb_directory');
 	elgg_register_plugin_hook_handler('thumb:filename', 'object', 'avatars_user_set_thumb_filename');
+	
+	elgg_unregister_plugin_hook_handler('entity:icon:url', 'user', 'profile_set_icon_url');
+	elgg_unregister_plugin_hook_handler('entity:icon:url', 'user', 'user_avatar_hook');
 
 }
 
