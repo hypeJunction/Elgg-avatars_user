@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.1.0...v1.1.1) (2016-01-30)
+
+
+### Bug Fixes
+
+* **urls:** do not restrict user avatar inline url with a cookie ([8e5ed10](https://github.com/hypeJunction/Elgg-avatars_user/commit/8e5ed10))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.0.0...v1.1.0) (2015-12-29)
 
