@@ -1,3 +1,9 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.1.1...v1.1.2) (2016-01-30)
+
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.1.0...v1.1.1) (2016-01-30)
 
