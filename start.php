@@ -20,10 +20,10 @@ function avatars_user_init() {
 	elgg_register_plugin_hook_handler('route', 'avatar', 'avatars_user_route_hook');
 	elgg_register_plugin_hook_handler('thumb:directory', 'object', 'avatars_user_set_thumb_directory');
 	elgg_register_plugin_hook_handler('thumb:filename', 'object', 'avatars_user_set_thumb_filename');
-	
+
 	elgg_unregister_plugin_hook_handler('entity:icon:url', 'user', 'profile_set_icon_url');
 	elgg_unregister_plugin_hook_handler('entity:icon:url', 'user', 'user_avatar_hook');
-
+	elgg_register_plugin_hook_handler('entity:icon:url', 'user', 'avatars_user_icon_url');
 }
 
 /**
@@ -64,7 +64,6 @@ function avatars_user_route_hook($hook, $type, $return, $params) {
 			$guid,
 		]
 	];
-
 }
 
 /**
@@ -99,5 +98,24 @@ function avatars_user_set_thumb_filename($hook, $type, $return, $params) {
 	$size = elgg_extract('size', $params);
 	if ($entity instanceof hypeJunction\Images\Avatar && $entity->getContainerEntity() instanceof ElggUser) {
 		return "{$entity->container_guid}{$size}.jpg";
+	}
+}
+
+/**
+ * User avatar icon URL handler
+ *
+ * @param string $hook   "entity:icon:url"
+ * @param string $type   "object"
+ * @param string $return URL
+ * @param array  $params Hook params
+ * @return array
+ */
+function avatars_user_icon_url($hook, $type, $return, $params) {
+	$entity = elgg_extract('entity', $params);
+	$size = elgg_extract('size', $params);
+
+	$avatar = avatars_get_avatar($entity);
+	if ($avatar) {
+		return elgg_get_inline_url($avatar);
 	}
 }
