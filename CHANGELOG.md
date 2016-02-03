@@ -1,3 +1,13 @@
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.1.2...v1.1.3) (2016-02-03)
+
+
+### Bug Fixes
+
+* **icons:** fix user avatar icon URLs ([867ba9b](https://github.com/hypeJunction/Elgg-avatars_user/commit/867ba9b))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.1.1...v1.1.2) (2016-01-30)
 
