@@ -115,7 +115,13 @@ function avatars_user_icon_url($hook, $type, $return, $params) {
 	$size = elgg_extract('size', $params);
 
 	$avatar = avatars_get_avatar($entity);
-	if ($avatar) {
-		return elgg_get_inline_url($avatar);
+	if (!$avatar) {
+		return;
 	}
+	$thumb = images()->getThumb($avatar, $size);
+	if (!$thumb) {
+		return;
+	}
+	
+	return elgg_get_inline_url($thumb, false);
 }
