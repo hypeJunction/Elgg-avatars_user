@@ -1,3 +1,13 @@
+<a name="1.1.4"></a>
+## [1.1.4](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.1.3...v1.1.4) (2016-02-24)
+
+
+### Bug Fixes
+
+* **pages:** do not hijack the route and replace core views instead ([c593f08](https://github.com/hypeJunction/Elgg-avatars_user/commit/c593f08))
+
+
+
 <a name="1.1.3"></a>
 ## [1.1.3](https://github.com/hypeJunction/Elgg-avatars_user/compare/1.1.2...v1.1.3) (2016-02-03)
 
